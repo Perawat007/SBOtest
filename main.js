@@ -75,7 +75,7 @@ app.post('/login/member', async (require, response, next) => {
 
     const currentTimeInThailand = moment().tz('Asia/Bangkok');
     const formattedDate = currentTimeInThailand.format('YYYY-MM-DD');
-
+    console.log(phoneNumber, agent_id)
     let sql = `SELECT id, credit, name, password, phonenumber, username FROM member WHERE username='${phoneNumber}' AND status_delete='N' AND agent_id = '${agent_id}'`;
     connection.query(sql, async (error, results) => {
         try {
